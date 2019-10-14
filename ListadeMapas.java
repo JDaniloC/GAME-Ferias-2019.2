@@ -1,9 +1,12 @@
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.util.*;
 
 import Mobs.Player;
 
 class ListadeMapas{
+    private String caminho;
     private Level nivel;
     private ListadeMapas proximo;
 
@@ -11,11 +14,13 @@ class ListadeMapas{
         this.nivel = nivel;
         proximo = null;
         if (caminho != null){
-            init(caminho);
+            this.caminho = caminho;
+            init();
         }
     }
     public static void main(String[] args) throws Exception{
-        new ListadeMapas("C:\\Users\\Rengar\\Documents\\Program\\Projeto-IF669-2019\\Config.txt", null);
+        ListadeMapas test = new ListadeMapas("E:\\Users\\jdsc\\Desktop\\Projeto-IF669-2019\\Config.txt", null);
+        test.addMap("\n");
     }
 
     public void adiciona(String[][] mapa) throws Exception {
@@ -31,7 +36,7 @@ class ListadeMapas{
         }
     }
 
-    public void init(String caminho) throws Exception{
+    public void init() throws Exception{
         File arquivo = new File(caminho);
         Scanner leitor = new Scanner(arquivo);
         String [][]novo = new String[31][];
@@ -49,6 +54,13 @@ class ListadeMapas{
         leitor.close();
     }
 
+    public void addMap(String mapa) throws Exception{
+        File arquivo = new File(caminho);
+        BufferedWriter escreve = new BufferedWriter(new FileWriter(arquivo, true));
+        escreve.write(mapa);
+        escreve.close();
+    }
+
     public ListadeMapas next(){
         if (proximo != null){
             return proximo;
@@ -61,6 +73,10 @@ class ListadeMapas{
             return true;
         }
         return false;
+    }
+
+    public Level getMap(){
+        return nivel;
     }
 }
 

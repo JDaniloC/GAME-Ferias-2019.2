@@ -2,6 +2,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import java.util.*;
+import java.io.*;
 
 public class Jogo extends JFrame implements KeyListener{
     int x;
@@ -10,11 +11,11 @@ public class Jogo extends JFrame implements KeyListener{
     final Tela paintPan = new Tela();
     JTextField controles;
 
-    public Jogo(){
+    public Jogo() throws FileNotFoundException {
         setTitle("Pacman");
         setSize(717, 860);
         setLayout(new BorderLayout());
-        Scanner in = new Scanner(System.in);
+        Scanner in = new Scanner(new File("Config.txt"));
 
         JButton testButon = new JButton("Display shape");
         add(paintPan, BorderLayout.CENTER);
@@ -46,7 +47,11 @@ public class Jogo extends JFrame implements KeyListener{
     }
 
     public static void main(String[] args) {
-        new Jogo();
+        try {
+            new Jogo();
+        } catch (Exception e) {
+            System.out.println(e);
+        } 
     }
     public void keyPressed(KeyEvent e) {
         anda(e, mapa);

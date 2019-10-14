@@ -18,16 +18,16 @@ class Tela extends JPanel {
             for (int i = 0; i < 28; i++){
                 for (int j = 0; j < 31; j++){
                     if (mapa[j][i].equals("#")){
-                        map[j][i] = new ImageIcon("src/Imagens/Wall.jpg").getImage();
+                        map[j][i] = new ImageIcon("Imagens\\Wall.jpg").getImage();
                         g.drawImage(map[j][i], i*25, j*25, 25,25,this);
                     } else if(mapa[j][i].equals("C")){
-                        map[j][i] = new ImageIcon("src/Imagens/Pac.png").getImage();
+                        map[j][i] = new ImageIcon("Imagens\\Pac.png").getImage();
                         g.drawImage(map[j][i], i*25, j*25, 25,25,this);
                     } else if (mapa[j][i].equals("G")){
-                        map[j][i] = new ImageIcon("src/Imagens/Ghost.png").getImage();
+                        map[j][i] = new ImageIcon("Imagens\\Ghost.png").getImage();
                         g.drawImage(map[j][i], i*25, j*25, 25,25,this);
                     } else if(mapa[j][i].equals(".")) {
-                        map[j][i] = new ImageIcon("src/Imagens/Coin.png").getImage();
+                        map[j][i] = new ImageIcon("Imagens\\Coin.png").getImage();
                         g.drawImage(map[j][i], i * 25, j * 25, 25, 20, this);
                     }
                 }
