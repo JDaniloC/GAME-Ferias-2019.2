@@ -19,7 +19,12 @@ class ListadeMapas{
         }
     }
     public static void main(String[] args) throws Exception{
-        ListadeMapas test = new ListadeMapas("E:\\Users\\jdsc\\Desktop\\Projeto-IF669-2019\\Config.txt", null);
+        String OS = System.getProperty("os.name");
+        String pre = "";
+        if (OS.equals("Linux")){
+            pre = "./";
+        }
+        ListadeMapas test = new ListadeMapas(pre + "Config.txt", null);
         test.addMap("\n");
     }
 

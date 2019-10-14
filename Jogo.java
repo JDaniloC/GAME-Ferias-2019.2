@@ -5,6 +5,8 @@ import java.util.*;
 import java.io.*;
 
 public class Jogo extends JFrame implements KeyListener{
+    String OS = System.getProperty("os.name");
+    String pre = "";
     int x;
     int y;
     String [][]mapa = new String[31][28];
@@ -15,8 +17,10 @@ public class Jogo extends JFrame implements KeyListener{
         setTitle("Pacman");
         setSize(717, 860);
         setLayout(new BorderLayout());
-        Scanner in = new Scanner(new File("Config.txt"));
-
+        if (OS.equals("Linux")){
+            pre = "./";
+        }
+        Scanner in = new Scanner(new File(pre + "Config.txt"));
         JButton testButon = new JButton("Display shape");
         add(paintPan, BorderLayout.CENTER);
         add(testButon, BorderLayout.PAGE_END);

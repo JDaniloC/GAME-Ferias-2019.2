@@ -2,10 +2,16 @@ import javax.swing.*;
 import java.awt.*;
 
 class Tela extends JPanel {
-
+    String OS = System.getProperty("os.name");
+    String pre;
     private String[][] mapa = null;
 
     public Tela() {
+        if (OS.equals("Linux")){
+            pre = "./Imagens/";
+        } else{
+            pre = "Imagens\\";
+        }
         setBackground(Color.WHITE);
     }
 
@@ -18,16 +24,16 @@ class Tela extends JPanel {
             for (int i = 0; i < 28; i++){
                 for (int j = 0; j < 31; j++){
                     if (mapa[j][i].equals("#")){
-                        map[j][i] = new ImageIcon("Imagens\\Wall.jpg").getImage();
+                        map[j][i] = new ImageIcon(pre + "Wall.jpg").getImage();
                         g.drawImage(map[j][i], i*25, j*25, 25,25,this);
                     } else if(mapa[j][i].equals("C")){
-                        map[j][i] = new ImageIcon("Imagens\\Pac.png").getImage();
+                        map[j][i] = new ImageIcon(pre +"Pac.png").getImage();
                         g.drawImage(map[j][i], i*25, j*25, 25,25,this);
                     } else if (mapa[j][i].equals("G")){
-                        map[j][i] = new ImageIcon("Imagens\\Ghost.png").getImage();
+                        map[j][i] = new ImageIcon(pre + "Ghost.png").getImage();
                         g.drawImage(map[j][i], i*25, j*25, 25,25,this);
                     } else if(mapa[j][i].equals(".")) {
-                        map[j][i] = new ImageIcon("Imagens\\Coin.png").getImage();
+                        map[j][i] = new ImageIcon(pre + "Coin.png").getImage();
                         g.drawImage(map[j][i], i * 25, j * 25, 25, 20, this);
                     }
                 }
