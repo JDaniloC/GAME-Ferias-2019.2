@@ -21,12 +21,13 @@ public class Jogo extends JFrame implements KeyListener{
             pre = "./";
         }
         Scanner in = new Scanner(new File(pre + "Config.txt"));
-        JButton testButon = new JButton("Display shape");
-        add(paintPan, BorderLayout.CENTER);
-        add(testButon, BorderLayout.PAGE_END);
+        //ListadeMapas niveis = new ListadeMapas(pre + "Config.txt", null);
+        JButton testButon = new JButton("Iniciar");
         controles = new JTextField(10);
         controles.addKeyListener(this);
-        add(controles, BorderLayout.PAGE_START);
+        add(testButon, BorderLayout.PAGE_START);
+        add(paintPan, BorderLayout.CENTER);
+        add(controles, BorderLayout.PAGE_END);
         testButon.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent arg0) {
@@ -43,6 +44,9 @@ public class Jogo extends JFrame implements KeyListener{
                         }
                     }
                 }
+                /*if (niveis.hasNext()){
+                    this.niveis = niveis.next();
+                }*/
                 paintPan.updateGraphics(mapa);
                 revalidate();
             }

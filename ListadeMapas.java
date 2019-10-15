@@ -60,10 +60,27 @@ class ListadeMapas{
     }
 
     public void addMap(String mapa) throws Exception{
-        File arquivo = new File(caminho);
-        BufferedWriter escreve = new BufferedWriter(new FileWriter(arquivo, true));
-        escreve.write(mapa);
-        escreve.close();
+        String[] map = mapa.split("\n");
+        String[][] novo = new String[31];
+        if (map.length == 31){ // O mapa tem 31 por default!
+            boolean ver = true;
+            for (int i = 0; i < 31 && ver; i++){
+                novo[i] = map[i].split(" ");
+                if (novo[i].length != 28){
+                    ver = false;
+                }
+            }
+            if (ver){
+                File arquivo = new File(caminho);
+                BufferedWriter escreve = new BufferedWriter(new FileWriter(arquivo, true));
+                escreve.write(mapa);
+                escreve.close();
+            } else{
+                System.out.println("ERROR: Mapa inválido");
+            }
+        } else{
+            System.out.println("ERROR: Mapa inválido");
+        }
     }
 
     public ListadeMapas next(){
@@ -95,10 +112,23 @@ class Level{
     }
     private Player[][] criaMob(String[][] valor){
         Player[][] novo = new Player[valor.length][valor[0].length];
+        int quant = 0;
         for (int i = 0; i < valor.length; i++){
             for (int j = 0; j < valor[0].length; j++){
-                if (valor[i][j].equals("#")){
-                    novo[i][j] = new Player(); // Especificar os tipos.
+                String objeto = valor[i][j];
+                if (objeto.equals("#")){
+                    novo[i][j] = new Fundo("W"); // Especificar os tipos.
+                } else if (objeto.equals(".")){
+                    novo[i][j] = new Reward("C");
+                } else if (objeto.equals("s")){
+                    novo[i][j] = new Reward("S");
+                } else if (objeto.equals("C")){
+                    novo[i][j] = new Player();
+                } else if (objeto.equals("G")){
+                    novo[i][j] = new Ghost(quant);
+                    quant ++;
+                } else{
+                    novo[i][j] = new Fundo();
                 }
             }
         }

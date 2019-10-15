@@ -1,9 +1,13 @@
+import javax.print.DocFlavor.STRING;
 import javax.swing.*;
 import java.awt.*;
 
 class Tela extends JPanel {
+    Font font = new Font("TimesRoman", Font.PLAIN, 200);
     String OS = System.getProperty("os.name");
     String pre;
+    int pontuacao = 0;
+    int vidas = 3;
     private String[][] mapa = null;
 
     public Tela() {
@@ -25,13 +29,13 @@ class Tela extends JPanel {
                 for (int j = 0; j < 31; j++){
                     if (mapa[j][i].equals("#")){
                         map[j][i] = new ImageIcon(pre + "Wall.jpg").getImage();
-                        g.drawImage(map[j][i], i*25, j*25, 25,25,this);
+                        g.drawImage(map[j][i], i*25, j*25, 25,25, this);
                     } else if(mapa[j][i].equals("C")){
                         map[j][i] = new ImageIcon(pre + "Pac.png").getImage();
-                        g.drawImage(map[j][i], i*25, j*25, 25,25,this);
+                        g.drawImage(map[j][i], i*25, j*25, 25,25, this);
                     } else if (mapa[j][i].equals("G")){
                         map[j][i] = new ImageIcon(pre + "Ghost.png").getImage();
-                        g.drawImage(map[j][i], i*25, j*25, 25,25,this);
+                        g.drawImage(map[j][i], i*25, j*25, 25,25, this);
                     } else if(mapa[j][i].equals(".")) {
                         map[j][i] = new ImageIcon(pre + "Coin.png").getImage();
                         g.drawImage(map[j][i], i * 25, j * 25, 25, 20, this);
@@ -39,6 +43,13 @@ class Tela extends JPanel {
                 }
             }
         }
+        Image life = new ImageIcon("Imagens\\Life.jpg").getImage();
+        g.drawImage(life, 80, 790, 100, 30, this);
+        g.drawString("Lifes ", 20, 810);
+        g.drawString("Pontuação ", 400, 810);
+        g.drawString(Integer.toString(pontuacao), 500, 810);
+        g.setFont(font);
+        //g.drawImage(new Text("Pontuação!").getImage(), 400, 720, this);
     }
 
     public void updateGraphics(String [][]matriz) {
