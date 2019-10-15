@@ -27,7 +27,7 @@ class Tela extends JPanel {
                         map[j][i] = new ImageIcon(pre + "Wall.jpg").getImage();
                         g.drawImage(map[j][i], i*25, j*25, 25,25,this);
                     } else if(mapa[j][i].equals("C")){
-                        map[j][i] = new ImageIcon(pre +"Pac.png").getImage();
+                        map[j][i] = new ImageIcon(pre + "Pac.png").getImage();
                         g.drawImage(map[j][i], i*25, j*25, 25,25,this);
                     } else if (mapa[j][i].equals("G")){
                         map[j][i] = new ImageIcon(pre + "Ghost.png").getImage();

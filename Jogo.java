@@ -33,12 +33,13 @@ public class Jogo extends JFrame implements KeyListener{
                 for (int i = 0; i < 31; i++){
                     mapa[i] = in.nextLine().split(" ");
                 }
-                for (int i = 0; i < 31; i++){
-                    for (int j = 0; j < 28; j++){
+                boolean ver = false;
+                for (int i = 0; i < 31 && !ver; i++){
+                    for (int j = 0; j < 28 && !ver; j++){
                         if (mapa[i][j].equals("C")){
                             x = j;
                             y = i;
-                            break;
+                            ver = true;
                         }
                     }
                 }
@@ -57,6 +58,7 @@ public class Jogo extends JFrame implements KeyListener{
             System.out.println(e);
         } 
     }
+
     public void keyPressed(KeyEvent e) {
         anda(e, mapa);
         paintPan.updateGraphics(mapa);
