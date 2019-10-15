@@ -43,12 +43,14 @@ class Tela extends JPanel {
                 }
             }
         }
+        Font currentFont = g.getFont();
+        Font newFont = currentFont.deriveFont(currentFont.getSize() * 2F);
+        g.setFont(newFont);
         Image life = new ImageIcon("Imagens\\Life.jpg").getImage();
         g.drawImage(life, 80, 790, 100, 30, this);
         g.drawString("Lifes ", 20, 810);
         g.drawString("Pontuação ", 400, 810);
         g.drawString(Integer.toString(pontuacao), 500, 810);
-        g.setFont(font);
         //g.drawImage(new Text("Pontuação!").getImage(), 400, 720, this);
     }
 
