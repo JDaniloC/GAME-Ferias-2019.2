@@ -17,6 +17,9 @@ public class Jogo extends JFrame implements KeyListener{
         setTitle("Pacman");
         setSize(717, 860);
         setLayout(new BorderLayout());
+        setLocationRelativeTo(null);
+
+        inicial();
         if (OS.equals("Linux")){
             pre = "./";
         }
@@ -51,8 +54,29 @@ public class Jogo extends JFrame implements KeyListener{
                 revalidate();
             }
         });
-        setLocationRelativeTo(null);
         setVisible(true);
+    }
+
+    public void inicial(){
+        JTextField plano = new JTextField(10);
+        JButton submit = new JButton("Enviar");
+        add(plano, BorderLayout.LINE_START);
+        add(submit, BorderLayout.PAGE_END);
+        
+        submit.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent arg0){
+                submit.setSelected(true);
+            }
+        });
+        setVisible(true);
+        while (!submit.isSelected()){
+            System.out.println();
+        }
+        System.out.println("Saiu");
+        remove(plano);
+        remove(submit);
+        setVisible(false);
     }
 
     public static void main(String[] args) {
