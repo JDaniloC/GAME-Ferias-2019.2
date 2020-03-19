@@ -17,7 +17,6 @@ public class Game extends JFrame {
     boolean irJogo, irRecord, irMapa;
 
     public Game() throws Exception {
-        setTitle("Pacman");
         setSize(717, 730);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -122,7 +121,7 @@ public class Game extends JFrame {
             venceu = window.init(niveis.getMap());
             if (venceu && niveis.hasNext()) {
                 level ++;
-                niveis.next();
+                niveis = niveis.next();
             } else if (!niveis.hasNext()) {
                 break;
             }
@@ -136,7 +135,6 @@ public class Game extends JFrame {
 
     public void record() {
         setVisible(false);
-        setTitle("Records");
         remove(telaInicial);
 
         Record scores = new Record();

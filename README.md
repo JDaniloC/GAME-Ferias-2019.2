@@ -23,11 +23,14 @@ Download direto pelo botão verde **Clone or Download** ou abra o VSCode, pressi
 ### Como instalar
 
 ```shell
-// Se estiver no intellij ou Eclipse crie um projeto e cole o projeto unindo src com src
+// Se estiver no intellij ou Eclipse crie um projeto chamado Pacman e cole a pasta Pacman, unindo src com src
 // Se estiver no VSCode, instale a extensão de Java e suas dependencias, e clique em Run acima método static
 // O jogo em si está na classe Game.java, mas tem outras classes runnables 
 // Um exemplo é o Tester.java que mostra o percurso dos fantasmas
 ```
+
+### Como jogar
+Vá na pasta Game e tendo o JDK inicie o arquivo Pacman.jar!
 
 ## Novidades
 - [x] *Jogo funcional sem bugs, criado a partir do Java Swing*
@@ -36,9 +39,9 @@ Download direto pelo botão verde **Clone or Download** ou abra o VSCode, pressi
 
 - [x] *Ao finalizar o jogo é registrado a pontuação de forma ordenada*
 
-- [x] *Enviando os dados por [e-mail!](https://github.com/Tiodonilo/Projeto-IF968-2019/blob/Projeto_3.0/imail.py)*
-
 - [x] *Você pode criar os próprios mapas no criador de mapas!*
+
+- [x] *Você pode rodar o jogo sem ser um programador [aqui](./Game/)*
 
 <p align="center">
 <image src="./static/Map.png">
