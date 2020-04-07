@@ -30,7 +30,9 @@ Download direto pelo botão verde **Clone or Download** ou abra o VSCode, pressi
 ```
 
 ### Como jogar
-Vá na pasta Game e tendo o JDK inicie o arquivo Pacman.jar!
+Vá na pasta Game e tendo o JRE inicie o arquivo Pacman.jar!
+
+Ou, execute o Jogo.exe, mas não guardará pontuação
 
 ## Novidades
 - [x] *Jogo funcional sem bugs, criado a partir do Java Swing*
