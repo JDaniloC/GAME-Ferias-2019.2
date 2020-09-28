@@ -34,6 +34,12 @@ Vá na pasta Game e tendo o JRE inicie o arquivo Pacman.jar!
 
 Ou, execute o Jogo.exe, mas não guardará pontuação
 
+## O que aprendi
+ - Como criar uma interface gráfica em Java
+ - Estratégias para os inimigos usando DFS e BFS
+ - Sprites para os personagens de acordo com o movimento
+ - Compilação de um programa Java
+
 ## Novidades
 - [x] *Jogo funcional sem bugs, criado a partir do Java Swing*
 
